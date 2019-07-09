@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  switch: one
+  value: MyString
+  user: one
+  timeStamp: 
+
+two:
+  switch: two
+  value: MyString
+  user: two
+  timeStamp: 

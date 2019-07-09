@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_05_093013) do
+ActiveRecord::Schema.define(version: 2019_07_06_111439) do
+
+  create_table "histories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "switch_id"
+    t.string "value"
+    t.bigint "user_id"
+    t.bigint "timeStamp"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["switch_id"], name: "index_histories_on_switch_id"
+    t.index ["user_id"], name: "index_histories_on_user_id"
+  end
 
   create_table "permission_policies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -18,6 +29,15 @@ ActiveRecord::Schema.define(version: 2019_06_05_093013) do
     t.boolean "io2"
     t.boolean "io3"
     t.boolean "io4"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "switches", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.integer "pin"
+    t.text "description"
+    t.boolean "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -37,5 +57,7 @@ ActiveRecord::Schema.define(version: 2019_06_05_093013) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "histories", "switches"
+  add_foreign_key "histories", "users"
   add_foreign_key "users", "permission_policies"
 end

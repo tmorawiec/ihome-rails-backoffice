@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
 
 
-  # root :to => "users#index"
-  root :to => "permission_policies#index"
+  resources :histories
+  resources :switches
+  get "/home/:page" => "home#show"
+  root "home#show", page: "home"
+  # root :to => "permission_policies#index"
 
   resources :permission_policies
   
