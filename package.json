@@ -1,0 +1,8 @@
+{
+  "name": "paw-backend-ror",
+  "private": true,
+  "dependencies": {
+    "bulma": "^0.7.5",
+    "bulma-extensions": "^6.2.7"
+  }
+}

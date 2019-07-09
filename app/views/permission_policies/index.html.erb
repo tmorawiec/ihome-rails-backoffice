@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Permission Policies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Io1</th>
+      <th>Io2</th>
+      <th>Io3</th>
+      <th>Io4</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @permission_policies.each do |permission_policy| %>
+      <tr>
+        <td><%= permission_policy.name %></td>
+        <td><%= permission_policy.io1 %></td>
+        <td><%= permission_policy.io2 %></td>
+        <td><%= permission_policy.io3 %></td>
+        <td><%= permission_policy.io4 %></td>
+        <td><%= link_to 'Show', permission_policy %></td>
+        <% if permission_policy.id > 2 %>
+          <td><%= link_to 'Edit', edit_permission_policy_path(permission_policy) %></td>
+          <td><%= link_to 'Destroy', permission_policy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Permission Policy', new_permission_policy_path %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @permission_policy.name %>
+</p>
+
+<p>
+  <strong>Io1:</strong>
+  <%= @permission_policy.io1 %>
+</p>
+
+<p>
+  <strong>Io2:</strong>
+  <%= @permission_policy.io2 %>
+</p>
+
+<p>
+  <strong>Io3:</strong>
+  <%= @permission_policy.io3 %>
+</p>
+
+<p>
+  <strong>Io4:</strong>
+  <%= @permission_policy.io4 %>
+</p>
+
+<%= link_to 'Edit', edit_permission_policy_path(@permission_policy) %> |
+<%= link_to 'Back', permission_policies_path %>

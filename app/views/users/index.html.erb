@@ -1,0 +1,87 @@
+<div class="container">
+  <% if current_user.try(:admin?) %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>Użytkownik</th>
+          <th>Admin</th>
+          <th colspan="2">Prawa dostępu do urządzeń</th>
+          <th>Edytuj</th>
+        </tr>
+      </thead>
+      <tbody>
+          <% @users.each do |user| %>
+          <tr>
+            <th><%= user.id %></th>
+            <td><%= link_to user.email, user %></td>
+            <td>
+              
+              <span class="icon has-text-info">
+              <% if user.admin %>
+              <i class="fas fa-user"></i>
+              <% else %>
+              <i class="far fa-user"></i>
+              <% end %>
+              </span>
+              
+            </td>
+          </td>
+          <td><%= user.permission_policy_id %></td>
+          <td><%= user.permission_policy.try(:name) %></td>
+          <td><%= link_to 'edytuj', edit_user_path(user) %></td>
+          <% end %>
+      </tbody>
+    </table>
+
+
+
+
+
+<div class="field">
+  <input class="is-checkradio" id="exampleCheckbox" type="checkbox" name="exampleCheckbox" checked="checked">
+  <label for="exampleCheckbox">Check me</label>
+</div>
+<div class="field">
+  <input class="is-checkradio" id="exampleRadioInline1" type="radio" name="exampleRadioInline" checked="checked">
+  <label for="exampleRadioInline1">Option 1</label>
+  <input class="is-checkradio" id="exampleRadioInline2" type="radio" name="exampleRadioInline">
+  <label for="exampleRadioInline2">Option 2</label>
+</div>
+
+<div class="field">
+  <input class="is-checkradio is-small" id="exampleCheckboxSmall" type="checkbox" name="exampleCheckboxSmall" checked="checked">
+  <label for="exampleCheckboxSmall">Checkbox - small</label>
+</div>
+
+  <% else %>
+
+      
+    <div class="notification">
+      <div class="notification is-danger">
+          Dostęp tylko dla zalogowanego użytkownika z prawami <strong>administratora</strong>.
+      </div>
+    </div>
+
+  <% end %>
+</div>
+
+
+
+<section class="section">
+  <div class="container">
+    <div class="control">
+      <button class="button" type="button">
+        Toggle Dropdown
+      </button>
+
+      <div class="box dropdown">
+        <ul>
+          <li><a class="nav-item">Dropdown Item 1</a></li>
+          <li><a class="nav-item">Dropdown Item 2</a></li>
+          <li><a class="nav-item">Dropdown Item 3</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

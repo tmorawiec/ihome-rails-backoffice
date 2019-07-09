@@ -1,0 +1,3 @@
+class PermissionPolicy < ApplicationRecord
+    has_many :users
+end

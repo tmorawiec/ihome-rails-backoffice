@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PawBackendRor</title>
+    <script src="https://kit.fontawesome.com/00e93c4deb.js"></script>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+<nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="#">
+      <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+    </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+
+      <%= link_to "Użytkownicy", :users , { :class=>"navbar-item" } %>
+
+      <%= link_to "Polityki dostępu", :permission_policies , { :class=>"navbar-item" } %>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item">
+            About
+          </a>
+          <a class="navbar-item">
+            Jobs
+          </a>
+          <a class="navbar-item">
+            Contact
+          </a>
+          <hr class="navbar-divider">
+          <a class="navbar-item">
+            Report an issue
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <% if user_signed_in? %>
+              <%= link_to(current_user.email, edit_user_registration_path, class: "button is-primary" )%>
+              <%= link_to("Wyloguj", destroy_user_session_path, method: :delete, class: "button is-light" )%>
+          <% else %>
+            <%= link_to('Login', new_user_session_path, class: "button is-primary" )%>
+            <%= link_to('Register', new_user_registration_path, class: "button is-light" )%>
+
+<% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+  
+
+
+
+
+
+
+    <%= yield %>
+  </body>
+</html>
+
+
+
