@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
-  before_action :is_admin?
-
+  before_action :is_admin?, only: [:index, :show, :create]
+  before_action :authorize_admin, only: :create
   
 
   def userzy
@@ -74,4 +74,5 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:email, :password, :admin,  :permission_policy_id)
     end
+
 end

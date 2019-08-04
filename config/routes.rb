@@ -10,8 +10,9 @@ Rails.application.routes.draw do
   resources :permission_policies
   
   # example: http://localhost:3000/my/users/sign_up
-  devise_for :users, :path_prefix => 'my'
-  
+  # devise_for :users, :path_prefix => 'my'
+
+  devise_for :users, :controllers => { :registrations => 'registrations'}
   resources :users
   match 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user
   

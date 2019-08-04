@@ -18,5 +18,9 @@ class ApplicationController < ActionController::Base
         redirect_to root_path unless current_user.try(:admin?)
     end
 
+    def authorize_admin
+      return unless !current_user.try(:admin?)
+      redirect_to root_path, alert: 'Admins only!'
+    end
 
 end
