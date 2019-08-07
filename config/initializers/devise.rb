@@ -8,8 +8,19 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'ff39832a2e1a260ba78ac34b5eaa53f61bd7dea1c31f0a81eb94168ed60a79965e3888acc341bd15447c4ee862bc2de16618ed5d60bb41f6b6b2b4ea8bcc9e00'
+  config.secret_key = 'ff39832a2e1a260ba78ac34b5eaa53f61bd7dea1c31f0a81eb94168ed60a79965e3888acc341bd15447c4ee862bc2de16618ed5d60bb41f6b6b2b4ea8bcc9e00'
 
+  # This configuration is for Devise JWT.
+  config.jwt do |jwt|
+    # TODO: Assign this to environment variable before production deployment!
+    jwt.secret = 'd105bba7e66439af4bdf70653143aca9a69fc87db14c299ffd2457ac2ec52ac64758044a521f45d3eed469dfbdbb1b58f38c2f692bda99cb264acb06b80f0858'
+    jwt.dispatch_requests = [
+        ['POST', %r{^/users/sign_in$}],
+        ['GET', %r{^/$}]
+    ]
+    jwt.request_formats = { user: [:json] }
+    jwt.expiration_time = 8.hours.to_i
+  end
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
@@ -251,7 +262,7 @@ Devise.setup do |config|
   # should add them to the navigational formats lists.
   #
   # The "*/*" below is required to match Internet Explorer requests.
-  # config.navigational_formats = ['*/*', :html]
+  config.navigational_formats = ['*/*', :html, :json]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
@@ -296,4 +307,6 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
+
+
 end

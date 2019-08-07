@@ -5,8 +5,6 @@ class UsersController < ApplicationController
   
 
   def userzy
-    # @users = User.all
-    # render :json => @users.as_json(:only => [:id, :email, :admin])
       @users = User.all
       render :json => @users.as_json(:only => [:id, :email, :admin], :include => {:permission_policy => {:only => [:name, :io1, :io2, :io3, :io4]}})
   end

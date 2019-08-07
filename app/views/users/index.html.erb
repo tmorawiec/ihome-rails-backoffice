@@ -33,26 +33,10 @@
           <% end %>
       </tbody>
     </table>
+    <%= link_to('Dodaj nowego użytkownika', new_user_registration_path, class: "button is-light" )%>
 
 
 
-
-
-<div class="field">
-  <input class="is-checkradio" id="exampleCheckbox" type="checkbox" name="exampleCheckbox" checked="checked">
-  <label for="exampleCheckbox">Check me</label>
-</div>
-<div class="field">
-  <input class="is-checkradio" id="exampleRadioInline1" type="radio" name="exampleRadioInline" checked="checked">
-  <label for="exampleRadioInline1">Option 1</label>
-  <input class="is-checkradio" id="exampleRadioInline2" type="radio" name="exampleRadioInline">
-  <label for="exampleRadioInline2">Option 2</label>
-</div>
-
-<div class="field">
-  <input class="is-checkradio is-small" id="exampleCheckboxSmall" type="checkbox" name="exampleCheckboxSmall" checked="checked">
-  <label for="exampleCheckboxSmall">Checkbox - small</label>
-</div>
 
   <% else %>
 
@@ -66,22 +50,3 @@
   <% end %>
 </div>
 
-
-
-<section class="section">
-  <div class="container">
-    <div class="control">
-      <button class="button" type="button">
-        Toggle Dropdown
-      </button>
-
-      <div class="box dropdown">
-        <ul>
-          <li><a class="nav-item">Dropdown Item 1</a></li>
-          <li><a class="nav-item">Dropdown Item 2</a></li>
-          <li><a class="nav-item">Dropdown Item 3</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>

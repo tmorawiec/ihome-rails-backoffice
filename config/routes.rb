@@ -12,7 +12,10 @@ Rails.application.routes.draw do
   # example: http://localhost:3000/my/users/sign_up
   # devise_for :users, :path_prefix => 'my'
 
-  devise_for :users, :controllers => { :registrations => 'registrations'}
+  devise_for :users,
+             :controllers => { :registrations => 'registrations',
+                                :sessions => "users/sessions"}
+
   resources :users
   match 'users/:id' => 'users#destroy', :via => :delete, :as => :admin_destroy_user
   
