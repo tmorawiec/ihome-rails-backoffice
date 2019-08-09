@@ -1,1 +1,41 @@
-dupa
+<div class="container">
+<h1 class="title">Historia użytkownika</h1>
+<h2 class="subtitle"><%= @user.email %></h2>
+
+<br/>
+<table>
+  <th><%= "created_at" %></th>
+   <th><%= "timeStamp" %></th>
+   <th>
+    <%= select_tag 'switch_filter', options_from_collection_for_select(Switch.all, 'id', 'name') %>
+    <%= link_to "param 1", user_path(:switch_id => 1) %>
+    <%= link_to "param 2", user_path(:switch_id => 2) %>
+    <%= link_to "Pokaż wszystko", user_path %>
+   </th>
+   <th><%= "value" %></th>
+  <%= render @history%>
+</table>
+<br/>
+<%= will_paginate @history, :params_name => 'page', :previous_label => t("<<"), :next_label => t(">>")  %>
+<br/>
+
+</div>
+
+
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>

@@ -18,6 +18,7 @@ class HistoriesController < ApplicationController
 
     def show
         @history = History.find(params[:id])
+        
         render :json => @history.as_json
     end
 

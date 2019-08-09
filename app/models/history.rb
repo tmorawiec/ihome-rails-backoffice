@@ -2,6 +2,9 @@ class History < ApplicationRecord
   belongs_to :switch
   belongs_to :user
 
+  # paginacja:
+  self.per_page = 10
+
   def user_name
     user.email
   end

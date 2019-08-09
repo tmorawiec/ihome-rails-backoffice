@@ -2,7 +2,6 @@ class SwitchesController < ApplicationController
     
     def index
         @switches = Switch.all
-        # render :json => @switches.as_json
 
         render :json => @switches.as_json(params)
 

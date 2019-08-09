@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  # helper_method :sort_column, :sort_direction
+
   before_action :is_admin?, only: [:index, :show, :create]
   before_action :authorize_admin, only: :create
   
@@ -40,6 +42,18 @@ class UsersController < ApplicationController
 
     def show
       @user = User.find(params[:id])
+
+      
+      if params[:switch_id].present?
+        @history = @user.histories
+        .paginate(page: params[:page]).order('created_at DESC')
+        .where(:switch_id => params[:switch_id])
+      else   
+        @history = @user.histories
+        .paginate(page: params[:page]).order('created_at DESC')
+      end
+      
+   
     end
 
     def index 
@@ -72,5 +86,15 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:email, :password, :admin,  :permission_policy_id)
     end
+
+
+  
+  # def sort_column
+  #   User.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  # end
+  
+  # def sort_direction
+  #   %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  # end
 
 end

@@ -5,6 +5,8 @@ class User < ApplicationRecord
 
   # User default permision policy is 1 - so he dont have any rights
   belongs_to :permission_policy, default: -> { PermissionPolicy.first }
+  has_many :histories
+
 
 
   devise :database_authenticatable, :registerable,
@@ -19,4 +21,7 @@ class User < ApplicationRecord
             'permission_policy' => permission_policy.attributes,
           }
         end
+
+
+
 end
