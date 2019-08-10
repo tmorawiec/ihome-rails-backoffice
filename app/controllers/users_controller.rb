@@ -43,6 +43,9 @@ class UsersController < ApplicationController
     def show
       @user = User.find(params[:id])
 
+      #shows only switches that are in User's history
+      @user_switches = Switch.all.where(:id => @user.histories.distinct.pluck(:switch_id))
+
       
       if params[:switch_id].present?
         @history = @user.histories

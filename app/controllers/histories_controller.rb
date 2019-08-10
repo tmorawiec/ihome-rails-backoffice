@@ -2,10 +2,17 @@ class HistoriesController < ApplicationController
 
 
     def index
+        @histories = History.all
+            respond_to do |type|
+                type.html # using defaults, which will render weblog/index.html.erb
+                type.json   { render :json => @histories.as_json }
+            end
         # @switches = Switch.find(:all, :include => [:category])
         # :include => {:permission_policy => {:only => [:name, :io1, :io2, :io3, :io4]}}
-        @histories = History.all
-        render :json => @histories.as_json
+        
+        # @histories = History.all
+        # render :json => @histories.as_json
+
             # render :json => @histories.as_json(
             #     :only => [:value, :timeStamp], 
             #     :include => [
