@@ -2,7 +2,11 @@ class HistoriesController < ApplicationController
 
 
     def index
+        
+
         @histories = History.all
+            .paginate(page: params[:page])
+            .order('id DESC')
             respond_to do |type|
                 type.html # using defaults, which will render weblog/index.html.erb
                 type.json   { render :json => @histories.as_json }

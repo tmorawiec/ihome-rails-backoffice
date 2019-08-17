@@ -2,26 +2,20 @@
 <h1 class="title">Historia użytkownika</h1>
 <h2 class="subtitle"><%= @user.email %></h2>
 
+
+
 <br/>
 <table>
   <th><%= "Czas zapisu" %></th>
    <th><%= "Znacznik czasowy serwera Arduino" %></th>
    <th>
-    
-
     <%= form_tag user_path, method: :get do %>
-    <span class="select">
-      <%= select_tag 'switch_id', options_from_collection_for_select(@user_switches, 'id', 'name') %>
+      <span class="select">
+        <%= select_tag 'switch_id', options_from_collection_for_select(@user_switches, 'id', 'name') %>
       </span>
       <%= submit_tag('Szukaj', :class => "button is-black ") %>
-        <%= link_to "Pokaż wszystko", user_path, :class => "button is-outlined" %>
+      <%= link_to "Pokaż wszystko", user_path, :class => "button is-outlined" %>
     <% end %>
-  
-    
-
-
-
-
    </th>
    <th><%= "Wartość" %></th>
   <%= render @history%>

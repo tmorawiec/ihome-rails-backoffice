@@ -2,15 +2,22 @@ class SwitchesController < ApplicationController
     
     def index
         @switches = Switch.all
-
-        render :json => @switches.as_json(params)
+        respond_to do |type|
+            type.html
+            type.json   { render :json => @switches.as_json(params) }
+        end
+        
 
 
     end
 
     def show
         @switch = Switch.find(params[:id])
-        render :json => @switch.as_json(params)
+        respond_to do |type|
+            type.html 
+            type.json   { render :json => @switch.as_json(params)}
+        end
+        
     end
 
 

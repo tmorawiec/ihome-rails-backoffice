@@ -1,4 +1,8 @@
 class PermissionPoliciesController < ApplicationController
+  
+  before_action :is_admin?, only: [:index, :show, :create]
+  before_action :authorize_admin, only: :create
+
   before_action :set_permission_policy, only: [:show, :edit, :update, :destroy]
 
   # GET /permission_policies

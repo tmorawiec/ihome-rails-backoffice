@@ -91,6 +91,8 @@ class UsersController < ApplicationController
     end
 
 
+
+
   
   # def sort_column
   #   User.column_names.include?(params[:sort]) ? params[:sort] : "name"

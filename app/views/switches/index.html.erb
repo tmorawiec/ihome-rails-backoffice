@@ -1,0 +1,46 @@
+
+
+<div class="container">
+
+  <h1 class="title is-1">Przełączniki</h1>
+    <%= notice %>
+
+
+<div class="columns is-mobile is-multiline is-centered">
+
+    <% @switches.each do |switches| %>
+       <div class="column is-narrow">
+              <article class="tile is-child notification is-link">
+
+             <progress 
+              class="progress <%= 'is-success' if switches.active %>" 
+              value="<%= switches.histories.last.value%>" 
+              max="255">
+            </progress>   
+
+            <p class="title"><%= switches.name %></p>
+            <p class="subtitle"><%= switches.description %></p>
+            <p>ID: <%= switches.id %></p>
+            <p>Pin arduino: <%= switches.pin %></p>
+            
+
+            <%# bagde %>
+            <div class="tags has-addons">
+              <span class="tag"><%= switches.histories.last.value%></span>
+              <span class="tag <% if switches.active %>is-success<% else %>is-danger<% end %>"><% if switches.active %>Aktywny<% else %>Nieaktywny<% end %></span>
+            </div>
+
+            <%= link_to 'Show', switches %>
+            <%= link_to 'Edit', edit_switch_path(switches) %>
+            <%= link_to 'Destroy', switches, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </article>
+     </div>
+    <% end %>
+
+
+
+
+</div>
+<%= link_to 'Dodaj nowy przełącznik', new_switch_path %>
+</div>
+
