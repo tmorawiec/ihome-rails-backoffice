@@ -15,8 +15,12 @@ class Users::SessionsController < Devise::SessionsController
 
   def create
     super do
-      render json: { user: current_user,
-                     jwt: current_token }.to_json and return
+      render json: {
+                      id: current_user.id,
+                      username: current_user.email,
+                      firstName: current_user.email,
+                      lastName: current_user.email,
+                      token: current_token }.to_json and return
     end
   end
 

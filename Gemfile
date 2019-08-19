@@ -40,6 +40,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'devise'
 gem 'devise-jwt'
 
+gem 'rack-cors'
 # Bulma css
 # gem "bulma-rails", "~> 0.7.5"
 # gem 'bulma-extensions-rails', '~> 1.0', '>= 1.0.30'
