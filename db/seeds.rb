@@ -17,3 +17,17 @@
         {email: "user3@example.com", password: "12345678", password_confirmation: "12345678", admin: false, permission_policy_id: 2},
         {email: "user4@example.com", password: "12345678", password_confirmation: "12345678", admin: false, permission_policy_id: 2},
     ])
+
+    Switch.create!([
+        {name: "room", pin: 11, description: "salon", active: true},
+        {name: "bedroom", pin: 10, description: "sypialnia", active: true},
+        {name: "kitchen", pin: 9, description: "kuchnia", active: true},
+        {name: "bathroom", pin: 6, description: "Łazienka", active: true},
+    ])
+
+    History.create!([
+        {switch_id: 1, value: "0", user_id: 1, timeStamp: 0},
+        {switch_id: 2, value: "0", user_id: 1, timeStamp: 0},
+        {switch_id: 3, value: "0", user_id: 1, timeStamp: 0},
+        {switch_id: 4, value: "0", user_id: 1, timeStamp: 0},
+    ])

@@ -18,7 +18,7 @@
   <div class="navbar-brand">
 
     <%= link_to root_path, :class => 'navbar-item' do %>
-      <%= image_tag 'https://bulma.io/images/bulma-logo.png', width: 112, height: 28, alt: 'a face that is unnervingly happy'%>
+      <h1 class="title">iHome Backoffice</h1>
     <% end %>
 
     <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -42,15 +42,11 @@
           Strefa admina
         </a>
 
-        
+
         <div class="navbar-dropdown">
           <%= link_to "Polityki dostępu", :permission_policies , { :class=>"navbar-item" } %>
           <%= link_to "Przełączniki", :switches , { :class=>"navbar-item" } %>
           <%= link_to "Historia", :histories , { :class=>"navbar-item" } %>
-          <hr class="navbar-divider">
-          <a class="navbar-item">
-            Report an issue
-          </a>
         </div>
       </div>
       <% end %>
@@ -65,7 +61,7 @@
               <%= link_to("Wyloguj", destroy_user_session_path, method: :delete, class: "button is-light" )%>
           <% else %>
             <%= link_to('Login', new_user_session_path, class: "button is-primary" )%>
-            
+
 
 <% end %>
         </div>
@@ -75,7 +71,7 @@
 </nav>
 
 
-  
+
 
 
 
@@ -88,7 +84,7 @@
     <footer class="footer has-text-black has-background-primary">
       <div class="content has-text-centered ">
         <p>
-          <strong>iHome Backoffice</strong>. 
+          <strong>iHome Backoffice</strong>.
           AGH PAW 2019<br/>
           Kod źródłowy: <a href="github.com">https://github.com/tmorawiec/ihome-rails-backoffice</a>
           Autor: <a href="morawiec.cc">Tomasz Morawiec</a>

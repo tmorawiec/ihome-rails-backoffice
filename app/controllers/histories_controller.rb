@@ -2,7 +2,7 @@ class HistoriesController < ApplicationController
 
 
     def index
-        
+
 
         @histories = History.all
             .paginate(page: params[:page])
@@ -13,14 +13,14 @@ class HistoriesController < ApplicationController
             end
         # @switches = Switch.find(:all, :include => [:category])
         # :include => {:permission_policy => {:only => [:name, :io1, :io2, :io3, :io4]}}
-        
+
         # @histories = History.all
         # render :json => @histories.as_json
 
             # render :json => @histories.as_json(
-            #     :only => [:value, :timeStamp], 
+            #     :only => [:value, :timeStamp],
             #     :include => [
-            #         :switch => {:only => [:name]}, 
+            #         :switch => {:only => [:name]},
             #         :user => {:only => [:email]}]
             #     )
         # render :json => @users.as_json(:only => [:id, :email, :admin], :include => {:permission_policy => {:only => [:name, :io1, :io2, :io3, :io4]}})
@@ -29,7 +29,7 @@ class HistoriesController < ApplicationController
 
     def show
         @history = History.find(params[:id])
-        
+
         render :json => @history.as_json
     end
 
@@ -40,7 +40,7 @@ class HistoriesController < ApplicationController
         @history = History.new(history_params)
         @history.switch_id = @param_switch
         @history.user_id = @param_user
-      
+
         if @history.save
          render json: @history
         else
@@ -59,7 +59,7 @@ class HistoriesController < ApplicationController
         def change_params
             @switch = Switch.find_by name: params[:switch_name]
             @user = User.find_by email: params[:user_name]
-            
+
             if @user
                 @param_user = @user.id
             end

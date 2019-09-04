@@ -1,17 +1,7 @@
 # frozen_string_literal: true
 
 class Users::SessionsController < Devise::SessionsController
-  # before_action :configure_sign_in_params, only: [:create]
 
-  # def create
-  #   self.resource = warden.authenticate!(auth_options)
-  #   set_flash_message(:notice, :signed_in) if is_flashing_format?
-  #   sign_in(resource_name, resource)
-  #   yield resource if block_given?
-  #   respond_with resource, :location => after_sign_in_path_for(resource) do |format|
-  #     format.json {render :json => resource } # this code will get executed for json request
-  #   end
-  # end
 
   def create
     super do
@@ -25,6 +15,12 @@ class Users::SessionsController < Devise::SessionsController
                       username: current_user.email,
                       firstName: current_user.email,
                       lastName: current_user.email,
+                      permission_policy: {
+                        room: current_user.permission_policy.io1,
+                        bedroom: current_user.permission_policy.io2,
+                        kitchen: current_user.permission_policy.io3,
+                        bathroom: current_user.permission_policy.io4
+                      },
                       token: current_token }.to_json and return
 
         end
@@ -32,12 +28,7 @@ class Users::SessionsController < Devise::SessionsController
         format.html
       end
 
-      # render json: {
-      #                 id: current_user.id,
-      #                 username: current_user.email,
-      #                 firstName: current_user.email,
-      #                 lastName: current_user.email,
-      #                 token: current_token }.to_json and return
+
     end
   end
 

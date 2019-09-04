@@ -12,17 +12,18 @@
        <div class="column is-narrow">
               <article class="tile is-child notification is-link">
 
-             <progress 
-              class="progress <%= 'is-success' if switches.active %>" 
-              value="<%= switches.histories.last.value%>" 
+             <progress
+              class="progress <%= 'is-success' if switches.active %>"
+              value="<%= switches.histories.last.value%>"
               max="255">
-            </progress>   
+            </progress>
 
-            <p class="title"><%= switches.name %></p>
+
+            <p class="title"><%= link_to switches.name, switches %></p>
             <p class="subtitle"><%= switches.description %></p>
             <p>ID: <%= switches.id %></p>
             <p>Pin arduino: <%= switches.pin %></p>
-            
+
 
             <%# bagde %>
             <div class="tags has-addons">
@@ -30,9 +31,9 @@
               <span class="tag <% if switches.active %>is-success<% else %>is-danger<% end %>"><% if switches.active %>Aktywny<% else %>Nieaktywny<% end %></span>
             </div>
 
-            <%= link_to 'Show', switches %>
-            <%= link_to 'Edit', edit_switch_path(switches) %>
-            <%= link_to 'Destroy', switches, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%# <%= link_to 'Show', switches %>
+            <%# <%= link_to 'Edit', edit_switch_path(switches) %>
+            <%# <%= link_to 'Destroy', switches, method: :delete, data: { confirm: 'Are you sure?' } %>
           </article>
      </div>
     <% end %>
@@ -41,6 +42,6 @@
 
 
 </div>
-<%= link_to 'Dodaj nowy przełącznik', new_switch_path %>
+<%# <%= link_to 'Dodaj nowy przełącznik', new_switch_path %>
 </div>
 
