@@ -1,6 +1,26 @@
-<h1>Editing Permission Policy</h1>
+<section class="hero is-warning">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Edycja polityki dostępu
+      </h1>
+      <h2 class="subtitle">
+        <%= @permission_policy.name %>
+      </h2>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <% if notice %>
+  <div class="notification">
+    <%= notice %>
+  </div>
+  <% end %>
 
 <%= render 'form', permission_policy: @permission_policy %>
 
-<%= link_to 'Show', @permission_policy %> |
-<%= link_to 'Back', permission_policies_path %>
+<%= link_to 'Pokaż', @permission_policy %> |
+<%= link_to 'Cofnij', permission_policies_path %>
+
+</div>

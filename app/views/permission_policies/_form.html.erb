@@ -10,33 +10,35 @@
       </ul>
     </div>
   <% end %>
+  <br/>
+
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.label :name , 'Nazwa' %>
+    <%= form.text_field :name, class: "input" %>
   </div>
 
   <div class="field">
-    <%= form.label :io1 %>
+    <%= form.label Switch.find(1).name %>
     <%= form.check_box :io1 %>
   </div>
 
   <div class="field">
-    <%= form.label :io2 %>
+    <%= form.label Switch.find(2).name %>
     <%= form.check_box :io2 %>
   </div>
 
   <div class="field">
-    <%= form.label :io3 %>
+    <%= form.label Switch.find(3).name %>
     <%= form.check_box :io3 %>
   </div>
 
   <div class="field">
-    <%= form.label :io4 %>
+    <%= form.label Switch.find(4).name %>
     <%= form.check_box :io4 %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit(class: "button is-link" ) %>
   </div>
 <% end %>

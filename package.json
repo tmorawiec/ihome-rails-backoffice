@@ -3,6 +3,7 @@
   "private": true,
   "dependencies": {
     "bulma": "^0.7.5",
-    "bulma-extensions": "^6.2.7"
+    "bulma-extensions": "^6.2.7",
+    "bulma-switch": "^2.0.0"
   }
 }

@@ -1,7 +1,18 @@
+<section class="hero is-info">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Polityki dostępu
+      </h1>
+      <%= link_to('Utwórz nową politykę dostępu', new_permission_policy_path, class: "button is-link" )%>
+    </div>
+  </div>
+</section>
+
 <div class="container">
 <p id="notice"><%= notice %></p>
 
-<h1 class="title">Polityki dostępu</h1>
+
 
 <table class="table">
   <thead>
@@ -19,10 +30,35 @@
     <% @permission_policies.each do |permission_policy| %>
       <tr>
         <td><%= permission_policy.name %></td>
-        <td><%= permission_policy.io1 %></td>
-        <td><%= permission_policy.io2 %></td>
-        <td><%= permission_policy.io3 %></td>
-        <td><%= permission_policy.io4 %></td>
+        <td>
+          <% if permission_policy.io1 %>
+            <i class="fa fa-check" aria-hidden="true"></i>
+          <% else %>
+            <i class="fa fa-times" aria-hidden="true"></i>
+          <% end %>
+        </td>
+        <td>
+          <% if permission_policy.io2 %>
+            <i class="fa fa-check" aria-hidden="true"></i>
+          <% else %>
+            <i class="fa fa-times" aria-hidden="true"></i>
+          <% end %>
+        </td>
+        <td>
+          <% if permission_policy.io3 %>
+            <i class="fa fa-check" aria-hidden="true"></i>
+          <% else %>
+            <i class="fa fa-times" aria-hidden="true"></i>
+          <% end %>
+        </td>
+        <td>
+          <% if permission_policy.io4 %>
+            <i class="fa fa-check" aria-hidden="true"></i>
+          <% else %>
+            <i class="fa fa-times" aria-hidden="true"></i>
+          <% end %>
+        </td>
+      
         <td><%= link_to 'Pokaż', permission_policy %></td>
         <% if permission_policy.id > 2 %>
           <td><%= link_to 'Edycja', edit_permission_policy_path(permission_policy) %></td>
@@ -35,5 +71,6 @@
 
 <br>
 
-<%= link_to 'Dodaj', new_permission_policy_path %>
+
+
 </div>

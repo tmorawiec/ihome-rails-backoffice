@@ -1,38 +1,86 @@
+<%= form_for(@user) do |f| %>
+
+<section class="hero is-warning">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Modyfikacja użytkownika
+      </h1>
+      <h2 class="subtitle">
+        <%= @user.email %>
+      </h2>
+    </div>
+  </div>
+</section>
+
 <div class="container">
+
+<br/>
+
+
+    
   
-    <%= form_for(@user) do |f| %>
-
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <label class="label"><%= f.label :email %><br /></label>
   </div>
-
-  <div class="field">
-    <%= f.label :admin %><br />
-    <%= f.check_box :admin %>
+  <div class="field-body">
+    <div class="field">
+      <p class="control is-expanded has-icons-left has-icons-right">
+        <%= f.email_field(:email, autofocus: true, autocomplete: "email", class: "input" )%>
+        <span class="icon is-small is-left">
+          <i class="fas fa-envelope"></i>
+        </span>
+      </p>
+    </div>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :permission_policy_id %><br />
-    <%= f.text_field :permission_policy_id %>
+
+
+<div class="field is-horizontal">
+<div class="field-label is-normal">
+  <label class="label"><%= f.label :admin %><br /></label>
+</div>
+<div class="field-body">
+<div class="field">
+<%= f.check_box :admin %>
+</div>
+</div>
+</div>
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+  <label class="label"><%= f.label "Polityka dostępu" %></label>
   </div>
-
-  <%= f.collection_select(:permission_policy_id, PermissionPolicy.all, :id, :name)   -%>
-
-
-  <div class="actions">
-    <%= f.submit "Update!" %>
+  <div class="field-body">
+    <span class="select">
+    <%= f.collection_select(:permission_policy_id, PermissionPolicy.all, :id, :name, {:class=>'control'})   -%>
+    </span>
   </div>
+</div>
+
+
+<div class="field is-horizontal">
+  <div class="field-label is-normal">
+    <span></span>
+  </div>
+  <div class="field-body">
+    <div class="actions">
+      <%= f.submit "Zapisz", :class => "button"  %>
+      <%= link_to "Usuń użytkownika", admin_destroy_user_path(@user), method: :delete, data: { confirm: "Czy na pewno chcesz usunąć użytkownika?" } , :class => "button is-danger" %>
+    </div>
+  </div>
+</div>
+
+  
+
+
+
 <% end %>
  
 
- <h3>Usuń to konto</h3>
-<%= link_to "Destroy", admin_destroy_user_path(@user), method: :delete, data: { confirm: "You sure?" } %>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(@user), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
 
 </div>
 

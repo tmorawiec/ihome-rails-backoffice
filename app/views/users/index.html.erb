@@ -1,3 +1,14 @@
+<section class="hero is-info">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Polityki dostępu
+      </h1>
+      <%= link_to('Dodaj nowego użytkownika', new_user_registration_path, class: "button is-link" )%>
+    </div>
+  </div>
+</section>
+
 <div class="container">
   <% if current_user.try(:admin?) %>
     <table class="table">
@@ -19,9 +30,9 @@
               
               <span class="icon has-text-info">
               <% if user.admin %>
-              <i class="fas fa-user"></i>
+              <i class="fas fa-user-cog"></i>
               <% else %>
-              <i class="far fa-user"></i>
+              <i class="fas fa-user"></i>
               <% end %>
               </span>
               
@@ -33,7 +44,6 @@
           <% end %>
       </tbody>
     </table>
-    <%= link_to('Dodaj nowego użytkownika', new_user_registration_path, class: "button is-light" )%>
 
 
 

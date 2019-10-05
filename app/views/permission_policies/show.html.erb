@@ -1,29 +1,64 @@
-<p id="notice"><%= notice %></p>
+
+<section class="hero is-info">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Polityka dostępu
+      </h1>
+      <h2 class="subtitle">
+        <%= @permission_policy.name %>
+      </h2>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <% if notice %>
+  <div class="notification">
+    <%= notice %>
+  </div>
+  <% end %>
+
 
 <p>
-  <strong>Name:</strong>
-  <%= @permission_policy.name %>
+  <strong><%= Switch.find(1).name %>:</strong>
+  <% if @permission_policy.io1 %>
+    <i class="fa fa-check" aria-hidden="true"></i>
+  <% else %>
+    <i class="fa fa-times" aria-hidden="true"></i>
+  <% end %>
 </p>
 
 <p>
-  <strong>Io1:</strong>
-  <%= @permission_policy.io1 %>
+  <strong><%= Switch.find(2).name %>:</strong>
+    <% if @permission_policy.io2 %>
+    <i class="fa fa-check" aria-hidden="true"></i>
+  <% else %>
+    <i class="fa fa-times" aria-hidden="true"></i>
+  <% end %>
 </p>
 
 <p>
-  <strong>Io2:</strong>
-  <%= @permission_policy.io2 %>
+  <strong><%= Switch.find(3).name %>:</strong>
+    <% if @permission_policy.io3 %>
+    <i class="fa fa-check" aria-hidden="true"></i>
+  <% else %>
+    <i class="fa fa-times" aria-hidden="true"></i>
+  <% end %>
 </p>
 
 <p>
-  <strong>Io3:</strong>
-  <%= @permission_policy.io3 %>
+  <strong><%= Switch.find(4).name %>:</strong>
+    <% if @permission_policy.io4 %>
+    <i class="fa fa-check" aria-hidden="true"></i>
+  <% else %>
+    <i class="fa fa-times" aria-hidden="true"></i>
+  <% end %>
 </p>
 
-<p>
-  <strong>Io4:</strong>
-  <%= @permission_policy.io4 %>
-</p>
+<%= link_to 'Edycja', edit_permission_policy_path(@permission_policy) %> |
+<%= link_to 'Powrót', permission_policies_path %>
 
-<%= link_to 'Edit', edit_permission_policy_path(@permission_policy) %> |
-<%= link_to 'Back', permission_policies_path %>
+</div>
+
+
